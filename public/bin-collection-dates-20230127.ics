@@ -1,0 +1,217 @@
+BEGIN:VCALENDAR
+PRODID:-//github.com/rianjs/ical.net//NONSGML ical.net 4.0//EN
+VERSION:2.0
+BEGIN:VTIMEZONE
+TZID:Europe/London
+X-LIC-LOCATION:Europe/London
+END:VTIMEZONE
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230215
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230215
+SEQUENCE:0
+SUMMARY:Grey Bin waste collection
+UID:b73f5a40-05c2-431b-9c8e-e3b7a3d5888e
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230315
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230315
+SEQUENCE:0
+SUMMARY:Grey Bin waste collection
+UID:c4d83b6d-0c59-4c58-81b7-673a9c548db3
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230412
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230412
+SEQUENCE:0
+SUMMARY:Grey Bin waste collection
+UID:581d664a-832c-4ed2-b104-acbb351c88bb
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230215
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230215
+SEQUENCE:0
+SUMMARY:Blue Bin waste collection
+UID:6b419218-fc7b-47a5-8065-481b42e8b54d
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230315
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230315
+SEQUENCE:0
+SUMMARY:Blue Bin waste collection
+UID:ef7116dc-06a0-4e08-8222-66230a082aff
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230412
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230412
+SEQUENCE:0
+SUMMARY:Blue Bin waste collection
+UID:86aace90-5171-4705-909c-13267bbd3e41
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230208
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230208
+SEQUENCE:0
+SUMMARY:Brown Bin waste collection
+UID:35a24627-e4b1-40bc-b08d-9d62d0607d85
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230222
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230222
+SEQUENCE:0
+SUMMARY:Brown Bin waste collection
+UID:5649b039-6f65-45a9-b7bc-c155fb994a04
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230308
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230308
+SEQUENCE:0
+SUMMARY:Brown Bin waste collection
+UID:18c64080-86a1-4d21-be7e-6ac468a4ed8b
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230322
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230322
+SEQUENCE:0
+SUMMARY:Brown Bin waste collection
+UID:616bccac-e35c-4298-9fc7-ddd03f795ce4
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230405
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230405
+SEQUENCE:0
+SUMMARY:Brown Bin waste collection
+UID:9e027c93-042f-4ce2-b2f6-3aa58a161914
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230419
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230419
+SEQUENCE:0
+SUMMARY:Brown Bin waste collection
+UID:e96c36bc-7e39-4016-88d1-87aa4d6aa8f0
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230208
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230208
+SEQUENCE:0
+SUMMARY:Green Bin waste collection
+UID:50166af8-8a2d-4d0c-9985-151432d6641e
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230308
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230308
+SEQUENCE:0
+SUMMARY:Green Bin waste collection
+UID:a07dcf75-34eb-4c66-bb80-f2d4409b144f
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230405
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230405
+SEQUENCE:0
+SUMMARY:Green Bin waste collection
+UID:df5b253f-89a2-4a85-9e49-e2dee86d4668
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230503
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230503
+SEQUENCE:0
+SUMMARY:Green Bin waste collection
+UID:73a24410-4b0c-4a1b-83d7-208a960e5dfa
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230222
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230222
+SEQUENCE:0
+SUMMARY:Glass Bin waste collection
+UID:54f29e0a-0c91-48e2-977c-ff86d29cb591
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230322
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230322
+SEQUENCE:0
+SUMMARY:Glass Bin waste collection
+UID:27feadb6-6e8e-4b4b-ae1d-bf9e2711d9f6
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:For further information on your bin collection\, please visit 
+ https://www.stirling.gov.uk/bins-and-recycling/bin-collection-dates-searc
+ h/collections/?route=9770
+DTEND;VALUE=DATE:20230419
+DTSTAMP:20230127T161229Z
+DTSTART;VALUE=DATE:20230419
+SEQUENCE:0
+SUMMARY:Glass Bin waste collection
+UID:582f4da9-09e0-4827-88d7-62ee2730c02f
+END:VEVENT
+END:VCALENDAR
