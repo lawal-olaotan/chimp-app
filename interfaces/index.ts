@@ -26,3 +26,9 @@ export type Layout = {
   children?: React.ReactNode
   title?: string
 }
+
+export type Contact = {
+  email:string,
+  name:string,
+  status:string,
+}

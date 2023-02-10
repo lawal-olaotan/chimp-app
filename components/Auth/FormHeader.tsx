@@ -12,7 +12,7 @@ interface HeaderProps{
 
 export const FormHeader:NextPage<HeaderProps> = ({FormTitle,FormPath,FormLinkText})=> {
     return(
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-4 ">
 
                 <h1 className="text-2xl font-bold text-black">{FormTitle}</h1>
 
