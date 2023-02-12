@@ -7,113 +7,100 @@ import Link from 'next/link';
 import {signIn} from 'next-auth/react'; 
 import { AuthEmail } from './AuthEmail';
 import { Contact} from '../../interfaces/index'
-
+import { useRouter } from 'next/router';
+import {postReqUtil, isUserRegistered} from '../../utils/userUtils';
 
 
 export const SignUp = ()=> {
-
      const emailRef= useRef<HTMLInputElement>(null);
      const nameRef= useRef<HTMLInputElement>(null);
-     const [isEmailSent,setEmailSentStatus] = useState<Boolean>(true)
-     const [status, setMarketingStatus] = useState<Boolean>(true)
+     const [isEmailSent,setEmailSentStatus] = useState<boolean>(true)
+     const [marketingStatus, setMarketingStatus] = useState<boolean>(true)
+     const router = useRouter();
 
 
+       // function regsiter and send magic link to user email
      const registerUser = async (event:React.SyntheticEvent)=>{
-
          event.preventDefault();
    
          const email = emailRef.current?.value;
          const name = nameRef.current?.value;
+
+         // checking is user is already registered 
+         const isUserNew = await isUserRegistered(email); 
+
+         // send verification email to user
          
-         const isEmailSent = await signIn('email',{
-            redirect:false,
-            email:email,
-            name:name
-         })
+         if(!isUserNew){
+            // TODO: convulated if else statement, try out React Usereducer
+            const userData = {email:email,name:name}
 
-         if(isEmailSent.ok){
-            setEmailSentStatus(false)
+            const userResponse = await postReqUtil('api/checkUser','POST',userData); 
 
-
-            // if user is subscribed add to list here
-            if(status){
-
-               const user:Contact ={
-                  name:name,
-                  email:email,
-                  status:'subscribed'
+            if(userResponse){
+               const isEmailSent = await signIn('email',{
+               redirect:false,
+               email:email,
+               callbackUrl:'/'
+            })
+   
+            if(isEmailSent.ok){
+               setEmailSentStatus(false)
+   
+               // if user is subscribed add to list here
+               if(marketingStatus){
+                  const user:Contact ={
+                     name:name,
+                     email:email,
+                     status:'subscribed'
+                  }
+                  // add email,name and status to mailchimp Audience 
+                  saveUserToMailChimp(user) 
+               
                }
-
-               // add email,name and status to mailchimp Audience 
-               saveUserToMailChimp(user) 
-            
             }
+            }
+
+         }else{
+            router.push('/login')
          }
-
-   
-
-         // check if user is registered -> if yes is the session valid -> if se
-         // and route to dashboard
-
-         // save user to DB 
-         // check if User is already created and session has exipred 
-         // send email verification - use fmr solution as we setup domain
-         // if user checks marketing email push to hubspot - important to get done 
-         // Set UserInfo for verification page 
-         // for loginpage 
-   
-         // redirect to email verification page
      }
 
+    //function saves user contact to mailchimp audience
      const saveUserToMailChimp = async(contact:Contact)=>{
 
-      try{
+         try{
 
-         const AudienceContact:Contact = contact; 
+            const AudienceContact:Contact = contact; 
 
-         const mailChimpResponse = await fetch(`https://${process.env.NEXT_PUBLIC_MAILCHIMP_REGION}.api.mailchimp.com/3.0/lists/${process.env.NEXT_PUBLIC_MAILCHIMP_AUDIENCEID}/members`, {
-            method:'POST',
-            body:JSON.stringify(AudienceContact),
-            headers:{
-               Authorization: `apikey ${process.env.NEXT_PUBLIC_MAILCHIMP_APIKEY}`,
-               'Content-Type':'application/json'
-            }
-         })
-
-        console.log(mailChimpResponse);
+            const mailChimpResponse =  await postReqUtil('api/createContacxt','POST',AudienceContact)
+            const mailChimpResponseData = await mailChimpResponse.json();
+            console.log(mailChimpResponseData);
 
 
-
-      }catch(e){
-         console.log(e)
-      }
-
-        
-
-         
+         }catch(e){
+            console.log(e)
+         }
 
      }
 
-   //  handler function 
+   //checbox handler function
      const checkHandler = ()=> {
-         setMarketingStatus(!status)
+         setMarketingStatus(!marketingStatus)
      }
-
-
 
     return(
      <Layout title="Sign Up - Create a free Account | Chimp Tracker">
       {
-
          isEmailSent ? <form className='formbody' onSubmit={registerUser}>
          <FormHeader FormTitle='Sign Up' FormPath="/login" />
-         
+
+         <Inputs InputType="name" inputRef={nameRef} placeholder="name"/>
+
         <Inputs InputType="email" inputRef={emailRef} placeholder="Email"/>
 
-        <Inputs InputType="name" inputRef={nameRef} placeholder="name"/>
-         
          <div className='my-8 flex items-center'>
-              <input type="checkbox" name="marketing" checked={true} onChange={checkHandler} />
+              <input type="checkbox" name="marketing" checked={marketingStatus} onChange={checkHandler} />
               <label className='ml-2 text-xs' htmlFor="marketing">Send me product updates, offers, and reports.</label>
          </div>
 

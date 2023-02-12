@@ -22,4 +22,5 @@ const Layout = ({ children, title = 'Chimp Tracker' }: Layout) => (
   </div>
 )
 
+
 export default Layout

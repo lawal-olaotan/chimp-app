@@ -3,6 +3,8 @@ import { faShieldHalved, faBuildingColumns,faCirclePlus} from '@fortawesome/free
 import { useEffect, useState, useCallback} from 'react';
 import {usePlaidLink} from 'react-plaid-link';
 import { useRouter } from 'next/router';
+import Layout from '@components/Layout';
+
 
 export const Create = ()=> {
 
@@ -44,7 +46,7 @@ export const Create = ()=> {
         })
 
         return(
-            <>
+            <Layout>
             <div className="w-full flex flex-col h-[94%]">
                         <div className="section-layout py-12">
 
@@ -62,6 +64,6 @@ export const Create = ()=> {
                             </div>
                         </div>
             </div>
-            </>
+            </Layout>
         )
 }

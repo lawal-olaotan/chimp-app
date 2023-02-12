@@ -468,6 +468,9 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.visible {
+  visibility: visible;
+}
 .relative {
   position: relative;
 }
@@ -538,6 +541,9 @@ video {
 }
 .h-\[60px\] {
   height: 60px;
+}
+.h-screen {
+  height: 100vh;
 }
 .h-\[94\%\] {
   height: 94%;

@@ -50,7 +50,7 @@ export default NextAuth({
      })
   ], 
   pages:{
-     signIn:'/signin',
+     signIn:'/login',
      newUser: '/signup',
   }, 
   callbacks:{

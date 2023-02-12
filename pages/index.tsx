@@ -1,15 +1,21 @@
-import Layout from '../components/Layout'
+
 import { Create } from '@components/Dash/Create';
+import {NextPage } from 'next';
+import { AuthEnabledPage } from '../interfaces/index'
 
 
 
-export default function IndexPage (){
+ const IndexPage :AuthEnabledPage<NextPage> = () => {
   return (
-    <Layout title="Welcome | Chimp Tracker">
      <Create/>
-    </Layout>
   )
 }
+
+IndexPage.requiresAuthentication = true;
+export default IndexPage;
+
+
+
 
 
 

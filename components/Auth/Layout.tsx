@@ -5,8 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const Layout = ({ children, title = 'Sign Up - Create a Free Account' }: Layout) => {
-
-
     return(
 
         <>
@@ -36,8 +34,6 @@ const Layout = ({ children, title = 'Sign Up - Create a Free Account' }: Layout)
         </>
 
     )
-
-   
 }
 
 export default Layout

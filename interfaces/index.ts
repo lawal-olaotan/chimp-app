@@ -1,7 +1,7 @@
 
 export type User = {
-  id: number
   name: string
+  email: string
 }
 
 export interface ImageProps {
@@ -32,3 +32,9 @@ export type Contact = {
   name:string,
   status:string,
 }
+
+
+export type AuthEnabledPage <P = unknown> = P &{
+  requiresAuthentication?:true
+}
+
