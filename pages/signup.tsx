@@ -16,8 +16,6 @@ const Signup= () => {
  },[router])
 
 
-
-
     return(
        <>
         <SignUp/>

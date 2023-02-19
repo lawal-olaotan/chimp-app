@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import ClientPromise from "utils/mongoDB";
-import {UserSchema} from '../../utils/models/User'
+import { userDetails } from "interfaces";
 
 export default async function handler(req:NextApiRequest, res:NextApiResponse){
     try{
@@ -12,7 +12,7 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse){
             return res.status(200).json(users);
 
         }else if(req.method ===  'POST'){
-            const data:UserSchema = req.body;
+            const data:userDetails = req.body;
             const userdata = await db.collection('users').insertOne(data); 
             return res.status(200).json(userdata);
         }

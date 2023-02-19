@@ -3,15 +3,8 @@ import { MongoDBAdapter } from '@next-auth/mongodb-adapter'
 import ClientPromise from '../../../utils/mongoDB'; 
 import  EmailProvider from 'next-auth/providers/email';
 import {createTransport} from 'nodemailer'; 
+import type {userDetails as userInfo} from '../../../interfaces'
 
-
-
-interface userInfo {
-  name:string,
-  email:string,
-  id:string,
-  emailVerified:string
-}
 
 export default NextAuth({
   secret: process.env.NEXT_SECRET,
@@ -62,7 +55,7 @@ export default NextAuth({
 
      if(userDetails){
          let myUser:userInfo = {
-             id:userDetails.id,
+             _id:userDetails._id,
              emailVerified:userDetails.emailVerified,
              name: userDetails.name,
              email: userDetails.email,
@@ -124,7 +117,7 @@ function html({url,email}: Record<"url" | "email", string>) {
                </tr>
                <tr>
                  <td style="background-color:#ffffff;padding: 20px">
-                   <p style="margin:0;">Dear User</p>
+                   <p style="margin:0;">Dear Beloved User</p>
                  </td>
                </tr>
                <tr>
