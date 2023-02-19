@@ -11,6 +11,7 @@ async function getPublicToken(req:NextApiRequest, res:NextApiResponse){
         const plaidResponse = await plaidClient.itemPublicTokenExchange({
            public_token:req.body.public_token 
         })
+        // return access_token and item id or save to DB =
         req.session.accessToken = plaidResponse.data.access_token; 
         req.session.itemId = plaidResponse.data.item_id
         await req.session.save();

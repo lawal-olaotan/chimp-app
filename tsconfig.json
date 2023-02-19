@@ -22,7 +22,8 @@
     "paths":{
       "@components/*":["components/*.tsx"],
       "@styles/*":["styles/*"],
-      "@pages/*": ["pages/*.tsx"]
+      "@interfaces/*": ["interfaces/*.ts"], 
+      "@services/*": ["services/*.ts"], 
     }
     
   },

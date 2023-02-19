@@ -7,9 +7,12 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse)
 {
 
 try{
+		
 	// create plaid token 
+		const {userId,itemId} = req.body
+		const tokenId = userId || itemId
 		const getToken = await plaidClient.linkTokenCreate({
-			user:{client_user_id:'d/9ooYEXBGoo9bY+5efs1nDCXex3'},
+			user:{client_user_id: tokenId},
 			client_name:"chimp-tracker",
 			language:'en',
 			products:[Products.Auth, Products.Transactions],

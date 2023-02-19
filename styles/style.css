@@ -41,3 +41,13 @@ padding: 32px;
 width: 100%;
 margin: 0 auto;
 }
+
+.popup-btns{
+    width: 100%;
+    padding: .5rem 0; 
+    color: #fff;
+}
+
+.product-button:first-child{
+    margin-bottom: .5rem;
+}

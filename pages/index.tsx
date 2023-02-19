@@ -1,5 +1,5 @@
 
-import { Create } from '@components/Dash/Create';
+import { Welcome } from '@components/Dash/Welcome';
 import {NextPage } from 'next';
 import { AuthEnabledPage } from '../interfaces/index'
 
@@ -7,7 +7,8 @@ import { AuthEnabledPage } from '../interfaces/index'
 
  const IndexPage :AuthEnabledPage<NextPage> = () => {
   return (
-     <Create/>
+     <Welcome/>
+
   )
 }
 

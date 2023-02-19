@@ -37,6 +37,7 @@
     "react-dom": "18.2.0",
     "react-loader-spinner": "^5.3.4",
     "react-plaid-link": "^3.3.2",
+    "react-tabs": "^6.0.0",
     "react-toastify": "^9.1.1",
     "typescript": "4.9.4"
   },
