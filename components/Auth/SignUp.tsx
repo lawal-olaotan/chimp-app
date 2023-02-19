@@ -1,5 +1,5 @@
 import { FormHeader } from './FormHeader';
-import React,{useState, useRef } from 'react'; 
+import React,{useState, useRef, useContext } from 'react'; 
 import { Button } from './button';
 import Layout  from './Layout';
 import { Inputs } from './Inputs';
@@ -8,13 +8,15 @@ import {signIn} from 'next-auth/react';
 import { AuthEmail } from './AuthEmail';
 import { Contact} from '../../interfaces/index'
 import { useRouter } from 'next/router';
-import {postReqUtil, isUserRegistered} from '../../utils/userUtils';
+import {api, isUserRegistered} from '../../services/api';
+import { verificationContext } from '../../utils/verifyContext'; 
+import AnimationData from '../../public/anim/Signup.json'; 
 
 
 export const SignUp = ()=> {
      const emailRef= useRef<HTMLInputElement>(null);
      const nameRef= useRef<HTMLInputElement>(null);
-     const [isEmailSent,setEmailSentStatus] = useState<boolean>(true)
+     const {isEmailSent,setEmailSentStatus} = useContext(verificationContext);
      const [marketingStatus, setMarketingStatus] = useState<boolean>(true)
      const router = useRouter();
 
@@ -35,7 +37,7 @@ export const SignUp = ()=> {
             // TODO: convulated if else statement, try out React Usereducer
             const userData = {email:email,name:name}
 
-            const userResponse = await postReqUtil('api/checkUser','POST',userData); 
+            const userResponse = await api('api/checkUser','POST',userData); 
 
             if(userResponse){
                const isEmailSent = await signIn('email',{
@@ -73,7 +75,7 @@ export const SignUp = ()=> {
 
             const AudienceContact:Contact = contact; 
 
-            const mailChimpResponse =  await postReqUtil('api/createContacxt','POST',AudienceContact)
+            const mailChimpResponse =  await api('api/createContacxt','POST',AudienceContact)
             const mailChimpResponseData = await mailChimpResponse.json();
             console.log(mailChimpResponseData);
 
@@ -110,7 +112,7 @@ export const SignUp = ()=> {
           </span>
 
          <Button value='Agree and Sign Up'/>
-      </form> : <AuthEmail/>
+      </form> : <AuthEmail emailAnimation={AnimationData} title="You are one step away from joining us"/>
       }
         
      </Layout>

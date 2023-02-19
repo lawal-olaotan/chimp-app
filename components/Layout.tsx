@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { Nav } from './Navbar/Nav'
 import {Tabs} from './Navbar/Tabs'
 import type { Layout } from 'interfaces'
+import { ModalContent } from '@components/Navbar/ModalContent';
 
 const Layout = ({ children, title = 'Chimp Tracker' }: Layout) => (
   <div className='relative'>
@@ -15,6 +16,7 @@ const Layout = ({ children, title = 'Chimp Tracker' }: Layout) => (
       <header>
         <Nav/>
       </header>
+      <ModalContent/>
       {children}
       <Tabs/>
 

@@ -1,11 +1,10 @@
-import { Document} from 'mongoose';
+import { ObjectId} from 'mongoose';
 
-type userDetails =  {
+export type userDetails =  {
     email: string,
     name: string,
-    emailVerified?: Date
+    emailVerified?: Date,
+    _id?:ObjectId
   
 }
-
-export interface UserSchema extends userDetails, Document{}
 

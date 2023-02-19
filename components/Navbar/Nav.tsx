@@ -1,6 +1,8 @@
 import Link from "next/link"
 import React from 'react'
 import Image from 'next/image'
+import { ProfileImage } from "./ProfileImage"
+
 
 
 export  const Nav = ()=> {
@@ -17,11 +19,7 @@ export  const Nav = ()=> {
                     <Link href="/" legacyBehavior>
                         <a>Send Invite</a>
                     </Link>
-
-                    <div className="bg-white rounded-full h-[60px] w-[60px] text-center flex items-center justify-center mr-4">
-                        <span className="text-primary">LO</span>
-                    </div>
-
+                    <ProfileImage/>
                 </div>
 
             </div>

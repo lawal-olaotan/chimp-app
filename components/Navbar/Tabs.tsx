@@ -12,8 +12,8 @@ export const Tabs = ()=> {
                     <div className="section-layout flex items-center justify-between">
                         <Tab tabLink="/dash" tabName="Home" tabIcon={faHouse}/>
                         <Tab tabLink="/recuring" tabName="Subscriptions" tabIcon={faRepeat}/>
-                        <Tab tabLink="/deals" tabName="Deals" tabIcon={faTag}/>
-                        <Tab tabLink="/Chimp" tabName="Chimp" tabIcon={faComment}/>
+                        <Tab tabLink="/trials" tabName="Free Trials" tabIcon={faTag}/>
+                        <Tab tabLink="/deals" tabName="Deals" tabIcon={faComment}/>
                     </div>
                 </div>
                

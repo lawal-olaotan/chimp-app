@@ -1,17 +1,20 @@
 
-import React,{useState, useRef, SyntheticEvent } from 'react'; 
+import React,{useState, useRef, SyntheticEvent, useContext } from 'react'; 
 import { FormHeader } from './FormHeader';
 import { Button } from './button';
 import Layout  from './Layout';
 import { Inputs } from './Inputs';
-import {postReqUtil, isUserRegistered} from '../../utils/userUtils';
+import {isUserRegistered} from '../../services/api';
 import {signIn} from 'next-auth/react';
 import Router from 'next/router';
 import { AuthEmail } from '@components/Auth/AuthEmail';
+import { verificationContext } from '../../utils/verifyContext'; 
+import AnimationData from '../../public/anim/SignIn.json'; 
 
 export const Login = ()=> {
 
     const emailRef= useRef<HTMLInputElement>(null);
+    const {isEmailSent,setEmailSentStatus} = useContext(verificationContext); 
 
     // function sends verification email to user registered email
     const signInUser = async(event:SyntheticEvent) => {
@@ -22,8 +25,9 @@ export const Login = ()=> {
             const signInResponse = await signIn('email',{
                 callbackUrl:'/',
                 email:emailRef.current?.value,
+                redirect:false
             })
-            return signInResponse;
+            if(signInResponse.ok) setEmailSentStatus(false)
         }else{
             Router.push('/signup');
         }
@@ -31,11 +35,13 @@ export const Login = ()=> {
 
     return (
         <Layout title="Sign In - Access your Account | Chimp Tracker">
-        <form onSubmit={signInUser} className="formbody">
-        <FormHeader FormLinkText=' dont' FormTitle="Sign In" FormPath='/signup' />
-            <Inputs InputType="email" inputRef={emailRef} placeholder="Email" />
-            <Button value='Send Verification Link'/>
-        </form>
+        {
+            isEmailSent ?  <form onSubmit={signInUser} className="formbody">
+            <FormHeader FormLinkText=' dont' FormTitle="Sign In" FormPath='/signup' />
+                <Inputs InputType="email" inputRef={emailRef} placeholder="Email" />
+                <Button value='Send Verification Link'/>
+            </form> : <AuthEmail title="Welcome back, we missed you" emailAnimation={AnimationData}/>
+        }
         </Layout>
     )
 
