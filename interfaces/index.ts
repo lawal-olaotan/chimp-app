@@ -16,12 +16,6 @@ export interface S3ImageProps {
   alt:string 
 }
 
-declare module "iron-session" {
-  interface IronSessionData {
-    accessToken?:string
-    itemId?:string
-}}
-
 export type Layout = {
   children?: React.ReactNode
   title?: string
@@ -50,14 +44,13 @@ export interface ChildrenProps{
 }
 
 export interface ItemType {
-  id: number;
-  plaid_item_id: string;
-  user_id: number;
-  plaid_access_token: string;
-  plaid_institution_id: string;
+  itemId: string;
+  userId:string;
+  accessToken: string;
+  institutionId: string;
   status: string;
-  created_at: string;
-  updated_at: string;
+  timestamp:string
+  lastCursor?:string 
 }
 
 export interface AccountType {
@@ -110,9 +103,8 @@ export interface TransactionType {
 
 export interface TokenExchange {
   publicToken : string,
-  institutionId:string,
-  accounts : PlaidAccount[],
-  userId:number
+  institutionId?:string,
+  accounts?: PlaidAccount[],
 }
 
 

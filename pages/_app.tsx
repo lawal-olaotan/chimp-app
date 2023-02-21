@@ -56,9 +56,6 @@ export default function MyApp({Component, pageProps:{session, ...pageProps}}:Com
 function Auth ({children}) {
     const {status} = useSession({required:true});
     const router = useRouter();
-  
-    
-  
     useEffect(()=>{
         getSession()
         .then((session)=>{

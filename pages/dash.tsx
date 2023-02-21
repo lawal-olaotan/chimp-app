@@ -1,10 +1,9 @@
-import { plaidClient, sessionOptions } from 'utils/plaid';
-import { withIronSessionSsr } from 'iron-session/next';
-import type { TransactionsGetRequest } from 'plaid';
+
 import Layout from '../components/Layout'
+import {NextPage } from 'next';
+import { AuthEnabledPage } from '../interfaces/index'
 
-
-export default function Dash(){
+const Dash:AuthEnabledPage<NextPage> = () => {
 
     return(
         <Layout title="Welcome | Chimp Tracker">
@@ -14,3 +13,5 @@ export default function Dash(){
 
 }
 
+Dash.requiresAuthentication = true;
+export default Dash;

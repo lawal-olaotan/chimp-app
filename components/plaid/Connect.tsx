@@ -43,12 +43,14 @@ export default function Connect(props:Props){
                     publicToken: publicToken, 
                     institutionId: metadata.institution.institution_id,
                     accounts:metadata.accounts,
-                    userId: props.userId
                 })
-                // getItemsByUser
+
+                // getItemsByUser using sessionId
+                
             }
             // deleteLinkToken
-            router.push('/dash')
+            router.replace('/dash')
+            
         },[])
 
 

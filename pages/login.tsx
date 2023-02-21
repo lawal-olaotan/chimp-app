@@ -10,7 +10,7 @@ const LoginIn = () => {
         getSession()
         .then((session)=>{
             if(session){
-                router.push('/')
+                router.push(`/${router.pathname}`)
             }
         })
  },[router])

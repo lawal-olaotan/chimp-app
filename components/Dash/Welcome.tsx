@@ -25,7 +25,7 @@ export const Welcome = ()=> {
                                         <div className='mb-8'>
                                             <h2 className='font-semibold mb-2'>welcome {sessionData?.name}</h2>
                                             <p className='font-medium mb-4 text-sm'>Let track your subscriptions and free trials.</p>
-                                            <span className='font-medium mb-4 text-sm'>You can manually track your Free trials and link your accounts to detect your subscriptions.</span>
+                                            <span className='font-medium mb-4 text-sm'>You can track your Free trials and link your accounts to detect your subscriptions.</span>
                                         </div>
                                         <div className='w-full h-4/5 flex self-center'>
                                                 <div className='flex flex-wrap items-center space-between'>
