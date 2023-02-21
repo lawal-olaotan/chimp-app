@@ -2,6 +2,7 @@ import {signIn } from 'next-auth/react';
 import { TokenExchange } from '@interfaces/index';
 import {toast} from 'react-toastify'; 
 
+
 export const api = async (apiUrl:string,reqMethod:string,data?:{})=>{
     const apifetch =   await fetch('/api'+ apiUrl,{
         method:reqMethod,
@@ -35,12 +36,10 @@ export const sendMagicLink = async(email:string) => {
 export const exchangeToken = async(data:TokenExchange) => {
 
     try{
-
-        const {Tokendata} =  await api('/create-public-key', 'POST', { 
+        const {Tokendata} =  await api('/item', 'POST', { 
             public_token: data.publicToken, 
             institutionId: data.institutionId,
             accounts:data.accounts,
-            userId: data.userId
         })
         return Tokendata; 
 
@@ -56,6 +55,12 @@ export const exchangeToken = async(data:TokenExchange) => {
   
 
 }
+
+// upon getting access token, update transactions
+
+// fetch data for 
+
+
 
 
 // get items by Id 

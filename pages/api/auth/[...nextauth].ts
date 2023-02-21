@@ -4,9 +4,10 @@ import ClientPromise from '../../../utils/mongoDB';
 import  EmailProvider from 'next-auth/providers/email';
 import {createTransport} from 'nodemailer'; 
 import type {userDetails as userInfo} from '../../../interfaces'
+import type { NextAuthOptions } from 'next-auth';
 
 
-export default NextAuth({
+export const authOptions:NextAuthOptions = {
   secret: process.env.NEXT_SECRET,
 
   adapter:MongoDBAdapter(ClientPromise),
@@ -66,7 +67,9 @@ export default NextAuth({
      }, 
   }
   
-})
+}
+
+export default NextAuth(authOptions)
 
 
 function html({url,email}: Record<"url" | "email", string>) {

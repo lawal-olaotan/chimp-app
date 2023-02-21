@@ -1,6 +1,6 @@
 import { Configuration, PlaidApi, PlaidEnvironments } from "plaid";
 
-const plaidClient = new PlaidApi(
+export const  plaidClient = new PlaidApi(
     new Configuration({
       basePath: PlaidEnvironments[process.env.PLAID_ENV],
       baseOptions: {
@@ -13,13 +13,4 @@ const plaidClient = new PlaidApi(
     })
   );
   
-  const sessionOptions = {
-    cookieName: 'chimp-cookies',
-    password: process.env.COOKIE_SECRET,
-    // secure: true should be used in production (HTTPS) but can't be used in development (HTTP)
-    cookieOptions: {
-      secure: process.env.NODE_ENV === 'production',
-    },
-  };
-  
-  export { plaidClient, sessionOptions };
+ 
