@@ -37,7 +37,7 @@ export const SignUp = ()=> {
             // TODO: convulated if else statement, try out React Usereducer
             const userData = {email:email,name:name}
 
-            const userResponse = await api('api/checkUser','POST',userData); 
+            const userResponse = await api('/checkUser','POST',userData); 
 
             if(userResponse){
                const isEmailSent = await signIn('email',{

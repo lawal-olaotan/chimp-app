@@ -25,5 +25,10 @@ const PORT = process.env.NEXTAUTH_URL
     ClientPromise = global._mongoClientPromise
  }
 
+ export default ClientPromise;
 
-export default ClientPromise
+
+ export const ActivateDb = async () => {
+    const db = (await ClientPromise).db();
+    return db;
+}

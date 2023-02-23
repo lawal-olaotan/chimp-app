@@ -81,7 +81,6 @@ export interface AccountType {
 }
 
 export interface TransactionType {
-  id: number;
   account_id: number;
   item_id: number;
   user_id: number;
@@ -97,8 +96,6 @@ export interface TransactionType {
   date: string;
   pending: boolean;
   account_owner: string;
-  created_at: string;
-  updated_at: string;
 }
 
 export interface TokenExchange {

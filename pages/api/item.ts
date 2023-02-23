@@ -3,15 +3,20 @@ import { plaidClient} from "utils/plaid";
 import { authOptions } from 'pages/api/auth/[...nextauth]'
 import { getServerSession } from "next-auth/next"; 
 import type { ItemType } from "interfaces";
-import ClientPromise from "utils/mongoDB";
+import {ActivateDb} from "utils/mongoDB";
 import { updateTransactions } from "../../services/getTransactions";
+
+
+// TODO: update item route
+
+
 
 
 
 export default async function handler (req:NextApiRequest, res:NextApiResponse){
     
     try{
-        const db = (await ClientPromise).db();
+        const db = await ActivateDb(); 
         const session = await getServerSession(req,res, authOptions);
 
         const {public_token, institutionId} = req.body; 
@@ -44,7 +49,9 @@ export default async function handler (req:NextApiRequest, res:NextApiResponse){
             accessToken:accessToken,
             institutionId:institutionId,
             timestamp: (new Date().toString()), 
-            status: 'good'
+            status: 'good',
+            lastCursor:''
+
         }
          const items = await db.collection('items').insertOne(newItem); 
     
@@ -62,16 +69,24 @@ export default async function handler (req:NextApiRequest, res:NextApiResponse){
     }
 }
 
-
 // get user user Item information using itemId
 export const getItembyId = async(itemId:string) => {
 
-    const db = (await ClientPromise).db();
+    const db = await ActivateDb(); 
 
     try{
         const itembyId = await db.collection('items').findOne({itemId:itemId});
         return itembyId;
     }catch(error){
         console.error(`Error fetching item by id:${error.message}`)
+    }
+}
+
+export const updateItemCursor = async(itemId:string, cursor:string) => {
+    try{
+        const db = await ActivateDb();
+        await db.collection('items').findOneAndUpdate({itemId: itemId},{$set:{lastCursor:cursor}}); 
+    }catch(error){
+        console.error(`Error updating item by id:${error.message}`)
     }
 }
