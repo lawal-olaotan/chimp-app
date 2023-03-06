@@ -1,32 +1,20 @@
-import { useEffect, useContext, useState} from 'react';
-import {sessionContext} from '../../utils/sessionContext';
+import {useContext} from 'react';
 import {profileContext} from '../../utils/ProfileLinks'
-import { useRouter } from 'next/router';
+import  Image  from 'next/image';
+import Link from 'next/link';
 
 export const ProfileImage = () => {
+    const {setModalStatus} = useContext(profileContext); 
 
-    const {sessionData} = useContext(sessionContext); 
-    const [profileName, setProfileName] = useState<string>();
-    const {setModalStatus} = useContext(profileContext)
-    const router = useRouter();
-
-    useEffect(()=> {
-        if(sessionData !== undefined){
-            const getFirstTwoLetters = GenerateProfileLetters()
-            setProfileName(getFirstTwoLetters)
-        }else{
-            router.push('/')
-        }
-    }, [sessionData])
-
-    const GenerateProfileLetters = ()=> {
-        const name = sessionData?.name
-        const nameArray = name.split('').slice(0,2).join('').toLocaleUpperCase()
-        console.log(nameArray); 
-        return nameArray;
+    const profileradius = {
+        borderRadius : '100%'
     }
 
     return (
-        <button onMouseLeave={()=>{setModalStatus(false)}}   onMouseEnter={()=>{setModalStatus(true)}} className="bg-white text-black rounded-full h-[60px] w-[60px] text-center flex items-center justify-center mr-4">{profileName}</button>
+        <Link href='/account' legacyBehavior>
+        <a onMouseLeave={()=>{setModalStatus(false)}}   onMouseEnter={()=>{setModalStatus(true)}} className="bg-white text-black rounded-full h-[60px] w-[60px] text-center flex items-center justify-center mr-4 relative"><Image style={profileradius} src={'/profile.jpeg'} fill={true} alt='user-profile'/></a>
+        </Link>
     )
 } 
+
+

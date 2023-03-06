@@ -8,6 +8,7 @@ import Link from "next/link";
 import { api } from "services/api";
 import {ToastContainer, toast } from 'react-toastify'; 
 import { useRouter } from "next/router";
+import {getSession} from 'next-auth/react';
 
 export const Account = () => {
 
@@ -17,9 +18,13 @@ export const Account = () => {
     const router = useRouter();
 
     useEffect(()=>{
-        setProfile(sessionData); 
-        const userJoined = returnWhenUserJoined(sessionData);
-        setJoinedDate(userJoined);
+        getSession().then((session)=>{
+            if(!session) router.replace('/login');
+            const userJoined = returnWhenUserJoined(session?.user);
+            setProfile(session?.user);
+            setJoinedDate(userJoined);
+        })
+        
     },[sessionData])
 
     const returnWhenUserJoined = (sessionData:userDetails) => {
@@ -68,7 +73,7 @@ export const Account = () => {
                                 <div className="flex w-full"><p className="mr-2 text-base">{profile?.email}</p> <Link href="/contact" legacyBehavior><a className="text-xs bg-primary py-1 px-2 m-0 flex item-center text-white"> Change</a></Link></div>
                               </div>
                               <div className="mt-8">
-                                <h4 className="text-base font-bold mb-2">Member Since</h4>
+                                <h4 className="text-base font-bold mb-2">Last Verified</h4>
                                <p className="mr-2 text-base">{joinedDate}</p> 
                               </div>
                               <button onClick={deleteAccount} className="text-xs bg-red-700 p-2 text-white mt-8 w-fit">Delete Account</button>
