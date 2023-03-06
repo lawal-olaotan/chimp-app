@@ -47,19 +47,25 @@ export const saveTransactions = async (transactions:any,userId:ObjectId)=> {
 
 export const saveRecurringTransactions = async(expenses:any,userId:ObjectId)=> {
     const newSubscriptions = []; 
+    const brandsAssets =[]; 
     const db = await ActivateDb(); 
 
     await expenses.map(async (expense:any)=> {
         const subs = {
             account_id: expense.account_id,
-            amount: expense.last_amount,
+            amount: expense.last_amount.amount,
             frequency:expense.frequency, 
             category: expense.category[0],
             subCategory: expense.category[1],
             isActive: expense.is_active,
             merchantName: expense.merchant_name,
-            userId: userId
+            description: expense.description,
+            userId: userId,
+            lastDate: expense.last_date,
+            status:expense.status
         }
+        // check if asset is already created;
+        brandsAssets.push(expense.description);
         newSubscriptions.push(subs)
     })
 
@@ -71,7 +77,21 @@ export const saveRecurringTransactions = async(expenses:any,userId:ObjectId)=> {
             await db.collection('recurring').insertOne(newSubscriptions[0]);
         }
 
+        return brandsAssets; 
+
     }catch(error){
         console.error(`error saving recurring transactions: ${error}`)
     }
+}
+
+export const deleteTransactions = async (removed:any) => {
+    const db = await ActivateDb();
+    if(removed.length > 1){
+        const bulk = db.collection('transactions').initializeUnorderedBulkOp()
+        bulk.find({'transaction_id':{$in:removed}}).delete(); 
+        bulk.execute();
+    }else if (removed.length !== 0){
+        db.collection('transactions').deleteOne({transaction_id: removed[0].transaction_id})
+    }
+
 }

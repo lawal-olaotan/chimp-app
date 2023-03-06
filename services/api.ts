@@ -1,6 +1,7 @@
-import {signIn } from 'next-auth/react';
+import {signIn} from 'next-auth/react';
 import { TokenExchange } from '@interfaces/index';
 import {toast} from 'react-toastify'; 
+import { useCallback } from 'react';
 
 
 export const api = async (apiUrl:string,reqMethod:string,data?:{})=>{
@@ -56,12 +57,11 @@ export const exchangeToken = async(data:TokenExchange) => {
 
 }
 
+
+
 // upon getting access token, update transactions
 
 // fetch data for 
-
-
-
 
 // get items by Id 
 // get items by User 
@@ -72,7 +72,6 @@ export const exchangeToken = async(data:TokenExchange) => {
 
 // get transactions by usersId
 // get transactions by item
-// get transactions by account
 
 
 // for instituions logo this will be saved to db once and updated every month // AWS STUFF
