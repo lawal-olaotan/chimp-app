@@ -24,8 +24,8 @@ export type TokenAction =
 
 export interface LinkTokenContext extends TokenState {
     dispatch: React.Dispatch<TokenAction>;  
-    createToken: (userId:number, itemId: number | null |undefined ) => void;
-    deleteLinkToken: (userId:number, itemId: number | null |undefined ) => void;
+    createToken: (userId:number, itemId: string | null |undefined ) => void;
+    deleteToken: (userId:number, itemId: string | null |undefined ) => void;
     tokens:TokenState
 }
 

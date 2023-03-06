@@ -6,14 +6,15 @@ import type { AppProps } from 'next/app';
 import type {ReactElement, ReactNode} from 'react';
 import type {NextPage} from 'next'; 
 import { SessionProvider} from "next-auth/react";
-import { useEffect, useContext } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useSession,getSession} from "next-auth/react";
 import { AuthLoader } from "@components/Auth/Loaders";
 import {VerificationProvider} from '../utils/verifyContext'
 import {SessionDataProvider} from '../utils/sessionContext'
-import { ProfileProvider} from '../utils/ProfileLinks'
-import {LinkTokenProvider } from 'services/link'
+import { ProfileProvider} from '../utils/ProfileLinks';
+import {LinkTokenProvider } from 'services/link';
+import {ItemProvider} from 'services/items';
 
 
 type NextPageWithLayout = NextPage & {
@@ -40,10 +41,13 @@ export default function MyApp({Component, pageProps:{session, ...pageProps}}:Com
             <SessionDataProvider>
               <ProfileProvider>
                 <LinkTokenProvider>
+                <ItemProvider>
           {getLayout(<Component{...pageProps}/>)}
+          </ItemProvider>
             </LinkTokenProvider>
           </ProfileProvider>
           </SessionDataProvider>
+         
         </Auth>
          ):
           getLayout(<Component{...pageProps}/>)

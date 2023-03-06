@@ -15,7 +15,7 @@ const Layout = ({ children, title = 'Sign Up - Create a Free Account' }: Layout)
         </Head>
     <div>
         <header>
-            <nav className='flex items-center justify-left bg-primary'>
+            <nav className=' items-center justify-left bg-primary sm:hidden md:flex'>
                 <div className='nav-layout h-full w-full flex'>
                     <Link href='/' legacyBehavior>
                         <a className="w-[180px] h-[60px] relative">

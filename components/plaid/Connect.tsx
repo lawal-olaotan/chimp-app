@@ -1,21 +1,18 @@
 import {
     usePlaidLink,
     PlaidLinkOnSuccessMetadata,
-    PlaidLinkOnExitMetadata,
-    PlaidLinkError,
     PlaidLinkOptionsWithLinkToken,
-    PlaidLinkOnEventMetadata,
-    PlaidLinkStableEvent,
 } from 'react-plaid-link';
 import { useEffect, useCallback} from 'react';
 import {exchangeToken} from '@services/api'; 
 import { useRouter } from "next/router";
-import useTokenLink from 'services/link'
+import useTokenLink from 'services/link';
+import useItems from 'services/items'; 
 
 interface Props {
     token: string, 
     userId: number
-    itemId?: number | null
+    itemId?: string | null
     children?: React.ReactNode
 }
 
@@ -23,7 +20,9 @@ interface Props {
 export default function Connect(props:Props){
 
         const router = useRouter();
-        const {createToken, deleteLinkToken} = useTokenLink(); 
+        const {deleteToken} = useTokenLink()
+        const {getItemsByUser, getItemsById} = useItems()
+        
 
          // react callback function that takes user unique ID and returns a public key
          const onSuccess = useCallback(async (
@@ -34,8 +33,8 @@ export default function Connect(props:Props){
             if(props.itemId !== null)
             {
                 // setItem State
-                // delete link token - done; 
-                // get token by byItemId
+                deleteToken(props.userId, props.itemId)
+                getItemsById(props.itemId)
 
             }else{
 
@@ -45,13 +44,23 @@ export default function Connect(props:Props){
                     accounts:metadata.accounts,
                 })
 
-                // getItemsByUser using sessionId
+                await getItemsByUser();
                 
             }
+            deleteToken(props.userId,null);
+            router.push('/')
             // deleteLinkToken
-            router.replace('/dash')
             
         },[])
+
+        // const onExit = async(
+        //     error: Error,
+        //     metadata: PlaidLinkOnSuccessMetadata
+        // )=> {
+        //    if(error != null && error.cause === 'INVALID_LINK_TOKEN'){
+        //     await createToken(props.userId, props.itemId)
+        //    }
+        // }
 
 
         const config:PlaidLinkOptionsWithLinkToken = {
@@ -68,7 +77,7 @@ export default function Connect(props:Props){
                 open(); 
             }
 
-        }, [ready, open, props.userId, props.itemId,props.token])
+        }, [ready,props.userId, props.itemId])
         
 
     return <></>
