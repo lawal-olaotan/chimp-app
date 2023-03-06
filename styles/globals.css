@@ -498,9 +498,6 @@ video {
 .m-0 {
   margin: 0px;
 }
-.m-auto {
-  margin: auto;
-}
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -533,17 +530,14 @@ video {
 .mr-2 {
   margin-right: 0.5rem;
 }
-.mr-4 {
-  margin-right: 1rem;
-}
 .mb-8 {
   margin-bottom: 2rem;
 }
+.mr-4 {
+  margin-right: 1rem;
+}
 .mt-2 {
   margin-top: 0.5rem;
-}
-.mt-4 {
-  margin-top: 1rem;
 }
 .flex {
   display: flex;
@@ -569,32 +563,11 @@ video {
 .h-4\/5 {
   height: 80%;
 }
-.h-auto {
-  height: auto;
-}
-.h-\[180\] {
-  height: 180;
-}
-.h-\[180px\] {
-  height: 180px;
-}
-.h-\[100px\] {
-  height: 100px;
-}
-.h-\[80px\] {
-  height: 80px;
-}
 .h-\[200px\] {
   height: 200px;
 }
-.h-\[220px\] {
-  height: 220px;
-}
-.h-\[185px\] {
-  height: 185px;
-}
-.max-h-\[200px\] {
-  max-height: 200px;
+.h-auto {
+  height: auto;
 }
 .w-\[400px\] {
   width: 400px;
@@ -618,27 +591,6 @@ video {
 .w-\[60px\] {
   width: 60px;
 }
-.w-\[180\] {
-  width: 180;
-}
-.w-\[100px\] {
-  width: 100px;
-}
-.w-\[80px\] {
-  width: 80px;
-}
-.w-auto {
-  width: auto;
-}
-.w-\[220px\] {
-  width: 220px;
-}
-.w-\[185px\] {
-  width: 185px;
-}
-.min-w-\[200px\] {
-  min-width: 200px;
-}
 .flex-col {
   flex-direction: column;
 }
@@ -653,9 +605,6 @@ video {
 }
 .justify-between {
   justify-content: space-between;
-}
-.justify-around {
-  justify-content: space-around;
 }
 .self-center {
   align-self: center;
@@ -729,33 +678,21 @@ video {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-.px-12 {
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
 .py-12 {
   padding-top: 3rem;
   padding-bottom: 3rem;
-}
-.px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
 }
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .pl-3 {
   padding-left: 0.75rem;
@@ -831,6 +768,10 @@ video {
     right: 1.5pc;
   }
 
+  .sm\:hidden {
+    display: none;
+  }
+
   .sm\:p-4 {
     padding: 1rem;
   }
@@ -858,6 +799,10 @@ video {
 
   .md\:right-\[6\.15pc\] {
     right: 6.15pc;
+  }
+
+  .md\:flex {
+    display: flex;
   }
 
   .md\:p-0 {
